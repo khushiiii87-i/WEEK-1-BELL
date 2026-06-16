@@ -81,7 +81,38 @@ function showTaunt(message) {
     taunt.style.opacity = '0';
   }, 1400);
 }
+function trackPupils(cursorX, cursorY) {
+  const pupilLeft  = document.getElementById('pupil-left');
+  const pupilRight = document.getElementById('pupil-right');
+  const svg = wrapper.querySelector('svg');
+  const rect = svg.getBoundingClientRect();
 
+
+  const eyes = [
+    { el: pupilLeft,  baseX: 39, baseY: 40 },
+    { el: pupilRight, baseX: 61, baseY: 40 },
+  ];
+
+  eyes.forEach(({ el, baseX, baseY }) => {
+   
+    const eyeScreenX = rect.left + (baseX / 100) * rect.width;
+    const eyeScreenY = rect.top  + (baseY / 130) * rect.height;
+
+ 
+    const dx = cursorX - eyeScreenX;
+    const dy = cursorY - eyeScreenY;
+    const angle = Math.atan2(dy, dx);
+
+    
+    const maxMove = 4;
+
+    const offsetX = Math.cos(angle) * maxMove;
+    const offsetY = Math.sin(angle) * maxMove;
+
+    el.setAttribute('cx', baseX + offsetX);
+    el.setAttribute('cy', baseY + offsetY);
+  });
+}
 function setCheekyFace(on) {
   const mouthNormal = document.getElementById('mouth-normal');
   const mouthCheeky = document.getElementById('mouth-cheeky');
@@ -216,6 +247,7 @@ function closePanel() {
 
 area.addEventListener('mousemove', function(event) {
   flee(event.clientX, event.clientY);
+  trackPupils(event.clientX, event.clientY);
 });
 
 
