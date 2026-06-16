@@ -1,0 +1,72 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+#bell-area {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#bell-wrapper {
+  position: absolute;
+  cursor: pointer;
+  transition: left 0.25s cubic-bezier(.22,.68,0,1.4), top 0.25s cubic-bezier(.22,.68,0,1.4);
+}
+
+#taunt {
+  position: absolute;
+  pointer-events: none;
+
+  opacity: 0;
+  font-size: 1rem;
+  background: white;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 10px;
+}
+
+#panel {
+  display: none;
+}
+#panel.show {
+  display: block;
+}
+
+@keyframes bell-wiggle {
+  0%,100% { transform: rotate(0deg); }
+  25%      { transform: rotate(-35deg); }
+  75%      { transform: rotate(35deg); }
+}
+.bell-wiggle {
+  animation: bell-wiggle 0.4s ease;
+}
+
+@keyframes taunt-pop {
+  0%   { opacity: 0; transform: scale(0.8); }
+  20%  { opacity: 1; transform: scale(1.05); }
+  80%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+#badge {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: red;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* so it doesn't block clicks on the bell */
+}

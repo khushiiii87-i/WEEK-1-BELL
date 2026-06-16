@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bell</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="bell-area">
+
+      <div id="bell-wrapper">
+        <svg width="100" height="130" viewBox="0 0 100 130">
+          <!-- Bell body -->
+          <rect x="45" y="5" width="10" height="10" rx="5" fill="orange"/>
+          <path d="M50 15 C25 15 15 35 15 65 L85 65 C85 35 75 15 50 15Z" fill="orange"/>
+          <rect x="10" y="65" width="80" height="12" rx="4" fill="orange"/>
+          <circle cx="50" cy="90" r="8" fill="orange"/>
+
+          <!-- Eyes -->
+          <circle cx="39" cy="40" r="10" fill="#444"/>
+          <circle cx="61" cy="40" r="10" fill="#444"/>
+          <circle cx="40" cy="42" r="3" fill="white"/>
+          <circle cx="60" cy="42" r="3" fill="white"/>
+
+          <!-- Mouth (normal) -->
+          <path id="mouth-normal"
+            d="M41 57 Q49 62 60 55"
+            fill="none" stroke="#444"
+            stroke-width="2.5" stroke-linecap="round"/>
+
+          <!-- Mouth (cheeky) — hidden by default -->
+          <path id="mouth-cheeky"
+            d="M41 55 Q50 65 60 55"
+            fill="none" stroke="#444"
+            stroke-width="4" stroke-linecap="round"
+            opacity="0"/>
+        </svg>
+         <div id="badge">
+
+         </div>
+      
+
+      <div id="taunt"></div> 
+      </div>   
+      <div id="status">Move your cursor toward the bell...</div>
+      <div id="panel">
+        <p>🔔 You have 3 notifications!</p>
+        <button id="close-btn">Close</button>
+      </div>
+
+    </div>>
+
+  
+
+    <script src="script.js"></script>
+  </body>
+</html>
