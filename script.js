@@ -82,16 +82,6 @@ function showTaunt(message) {
   }, 1400);
 }
 
-/**
- * setCheekyFace(on)
- * Swaps between the normal mouth and the cheeky mouth on your SVG.
- * This requires your SVG to have two <path> elements:
- *   id="mouth-normal"   (the default calm mouth)
- *   id="mouth-cheeky"   (the mischievous mouth)
- *
- * If your SVG doesn't have these, this function does nothing harmful —
- * it will just silently skip if the elements aren't found.
- */
 function setCheekyFace(on) {
   const mouthNormal = document.getElementById('mouth-normal');
   const mouthCheeky = document.getElementById('mouth-cheeky');
@@ -209,11 +199,6 @@ function openPanel() {
   status.textContent = '';
 }
 
-/**
- * closePanel()
- * Hides the panel and fully resets the bell back to its starting state.
- * The user has to chase it all over again!
- */
 function closePanel() {
   panel.classList.remove('show');
 
@@ -229,9 +214,6 @@ function closePanel() {
     badge.classList.remove('visible');
 }
 
-
-
-
 area.addEventListener('mousemove', function(event) {
   flee(event.clientX, event.clientY);
 });
@@ -241,10 +223,4 @@ wrapper.addEventListener('click', openPanel);
 
 closeBtn.addEventListener('click', closePanel);
 
-
-/* ============================================================
-   SECTION 11 — INITIALISE
-   Run once on page load to position the bell.
-   ============================================================ */
-
-    placeBellAtCenter();
+  placeBellAtCenter();
