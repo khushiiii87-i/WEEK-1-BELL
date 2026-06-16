@@ -31,4 +31,5 @@ WEEK-1-BELL/
 ```
 
 ## Author
-Khushi
+Khushi Jadhav
+25B3978
